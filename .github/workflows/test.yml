@@ -32,11 +32,5 @@ jobs:
         run: npm run build
       - name: Deploying
         run: echo "Deploying .."
-      - name: upload Articats
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist-files
-          path: |
-             dist
-             package.json
+
           

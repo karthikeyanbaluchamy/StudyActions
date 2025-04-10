@@ -16,7 +16,7 @@ jobs:
         run: npm test
       - name: Print goodbye
         run: echo "Done - bye!"
-  deploy:
+  build:
     needs: test
     runs-on: ubuntu-latest
     steps:
@@ -30,7 +30,12 @@ jobs:
         run: npm ci
       - name: Build project
         run: npm run build
-      - name: Deploying
-        run: echo "Deploying .."
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: dist-files
+          path: |
+             dist
+             package.json  
 
           

@@ -31,11 +31,17 @@ jobs:
       - name: Build project
         run: npm run build
       - name: Upload artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dist-files
           path: |
              dist
              package.json  
-
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploying the job
+        run: echo "done deplyment"
+      
           
